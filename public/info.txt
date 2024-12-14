@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: DroidSerif-Bold
+font link: https://www.fontsquirrel.com/fonts/droid-serif
+font author: Steve Matteson
+font author site: https://twitter.com/@SteveMatteson1
+
+
+icon designer: Luis Prado
+icon designer link: /Luis
+        
+{"bg":"transparent","icon-gradient-0":"#0D7CE9","icon-gradient-1":"#15CFF1","font":"#000000","slogan":"#141414"}
+      
