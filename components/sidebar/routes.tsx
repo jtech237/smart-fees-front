@@ -11,7 +11,7 @@ export const routes: Routes = {
     },
     {
       label: "Gestion des classes",
-      route: "/admin/classes",
+      route: "/admin/manage/classes",
       icon: <School />,
     },
   ],

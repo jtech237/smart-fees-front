@@ -12,7 +12,7 @@ interface Props {
 
 const SidebarItem: React.FC<Props> = ({item, pageName, setPageName}) => {
   function handleClick(){
-    const updatedPageName = pageName!== item.label.toLowerCase().replace(" ", "-") ? item.label.toLowerCase().replace(" ", "-") : ""
+    const updatedPageName = pageName!== item.label.toLowerCase().replace(/\s+/g, "-") ? item.label.toLowerCase().replace(/\s+/g, "-") : ""
     return setPageName(updatedPageName)
   }
 
