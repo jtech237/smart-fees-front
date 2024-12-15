@@ -5,6 +5,8 @@ import { FullClasses } from "@/types/data";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import moment from "moment";
+import DataTable from "@/components/data-table";
+import { columns } from "@/components/data-table/classe-list/columns";
 moment.locale("fr");
 
 const ClassesList = () => {
@@ -51,64 +53,15 @@ const ClassesList = () => {
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto">
-        <table className="table-auto w-full border-collapse border border-gray-200 dark:border-gray-700">
-          <thead className="bg-gray-100 dark:bg-gray-800">
-            <tr>
-              <th className="border border-gray-200 px-4 py-2 text-left dark:border-gray-700">
-                #
-              </th>
-              <th className="border border-gray-200 px-4 py-2 text-left dark:border-gray-700">
-                Nom de la classe
-              </th>
-              <th className="border border-gray-200 px-4 py-2 text-left dark:border-gray-700">
-                Classe parente
-              </th>
-              <th className="border border-gray-200 px-4 py-2 text-left dark:border-gray-700">
-                Dernière mise à jour
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {loading ? (
-              <tr>
-                <td colSpan={4} className="text-center p-4">
-                  Chargement des données...
-                </td>
-              </tr>
-            ) : error ? (
-              <tr>
-                <td colSpan={4} className="text-center p-4 text-red-500">
-                  {error}
-                </td>
-              </tr>
-            ) : data.length === 0 ? (
-              <tr>
-                <td colSpan={4} className="text-center p-4">
-                  Pas de classe disponible.
-                </td>
-              </tr>
-            ) : (
-              data.map((classe) => (
-                <tr key={`classe-${classe.id}`}>
-                  <td className="border border-gray-200 px-4 py-2 text-left dark:border-gray-700">
-                    {classe.id}
-                  </td>
-                  <td className="border border-gray-200 px-4 py-2 text-left dark:border-gray-700">
-                    {classe.name}
-                  </td>
-                  <td className="border border-gray-200 px-4 py-2 text-left dark:border-gray-700">
-                    {classe.parent ? classe.parent.name : "-/-"}
-                  </td>
-                  <td className="border border-gray-200 px-4 py-2 text-left dark:border-gray-700">
-                    {moment(classe.updated_at).fromNow()}
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
-      </div>
+      <DataTable
+        columns={columns}
+        error={error}
+        data={data}
+        isLoading={loading}
+        enableFilter
+        enablePagination
+        enableSorting
+      />
     </div>
   );
 };
